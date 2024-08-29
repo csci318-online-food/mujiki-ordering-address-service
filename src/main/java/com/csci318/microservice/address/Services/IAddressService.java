@@ -9,4 +9,5 @@ public interface IAddressService {
 
     AddressDTOResponse createAddressForUser(AddressDTORequest addressDTORequest, String userId);
     List<AddressDTOResponse> getAllAddressesForUser(String userId);
+    AddressDTOResponse getAddressForRestaurant(String restaurantId);
 }

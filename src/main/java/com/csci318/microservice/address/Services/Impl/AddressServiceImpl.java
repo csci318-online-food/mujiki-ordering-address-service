@@ -69,5 +69,13 @@ public class AddressServiceImpl implements IAddressService {
                 .collect(Collectors.toList());
     }
 
-
+    @Override
+    public AddressDTOResponse getAddressForRestaurant(String restaurantId) {
+        Address address = addressRepository.findByRestaurantId(restaurantId).orElse(null);
+        if (address == null) {
+            log.error("Address not found with addressId: " + restaurantId);
+            return null;
+        }
+        return addressMapper.toDtos(address);
+    }
 }

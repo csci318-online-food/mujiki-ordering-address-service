@@ -36,4 +36,12 @@ public class AddressController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(addresses);
     }
+
+    @GetMapping("/forRestaurant/{restaurantId}")
+    @ManagedOperation(description = "Get address for a restaurant")
+    public ResponseEntity<AddressDTOResponse> getAddressForRestaurant(@PathVariable String restaurantId) {
+        AddressDTOResponse address = addressService.getAddressForRestaurant(restaurantId);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(address);
+    }
 }
