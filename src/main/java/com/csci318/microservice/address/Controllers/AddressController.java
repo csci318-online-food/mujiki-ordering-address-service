@@ -29,4 +29,11 @@ public class AddressController {
                 .body(addressObj);
     }
 
+    @GetMapping("/forUser/{userId}")
+    @ManagedOperation(description = "Get all addresses for a user")
+    public ResponseEntity<List<AddressDTOResponse>> getAllAddresses(@PathVariable String userId) {
+        List<AddressDTOResponse> addresses = addressService.getAllAddressesForUser(userId);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(addresses);
+    }
 }
