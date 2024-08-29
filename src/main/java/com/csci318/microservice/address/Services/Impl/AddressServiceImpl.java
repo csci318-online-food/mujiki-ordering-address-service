@@ -38,9 +38,8 @@ public class AddressServiceImpl implements IAddressService {
     }
 
     @Override
-    @Transactional
     public AddressDTOResponse createAddressForUser(AddressDTORequest addressDTORequest, String userId) {
-        User user = restTemplate.getForObject(USER_URL + "/" + userId, User.class); // Find user by userId from user service
+        User user = restTemplate.getForObject(USER_URL + "/findById/" + userId, User.class); // Find user by userId from user service
         if (user == null) {
             log.error("User not found with userId: " + userId);
             return null;

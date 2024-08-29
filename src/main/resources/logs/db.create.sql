@@ -1,7 +1,7 @@
 CREATE TABLE address (
      id UUID PRIMARY KEY,
-     user_id UUID,
-     restaurant_id UUID,
+     user_id varchar(64),
+     restaurant_id varchar(64),
      street VARCHAR(255),
      suburb VARCHAR(255),
      state VARCHAR(255),

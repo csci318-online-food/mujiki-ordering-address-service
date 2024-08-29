@@ -14,8 +14,6 @@ import java.util.UUID;
 @Getter
 @Setter
 public class AddressDTORequest {
-    private String userId;
-    private String restaurantId;
     private String street;
     private String suburb;
     private String state;

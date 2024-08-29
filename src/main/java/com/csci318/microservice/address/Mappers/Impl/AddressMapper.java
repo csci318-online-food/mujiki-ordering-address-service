@@ -34,8 +34,6 @@ public class AddressMapper implements Mapper<Address, AddressDTOResponse, Addres
         entity.setState(dto.getState());
         entity.setPostcode(dto.getPostcode());
         entity.setCountry(dto.getCountry());
-        entity.setUserId(dto.getUserId());
-        entity.setRestaurantId(dto.getRestaurantId());
         return entity;
     }
 
