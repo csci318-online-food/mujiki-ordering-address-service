@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AddressServiceImpl implements IAddressService {
 
@@ -57,6 +60,13 @@ public class AddressServiceImpl implements IAddressService {
             log.error("Error creating address: " + e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public List<AddressDTOResponse> getAllAddressesForUser(String userId) {
+        return addressRepository.findAllByUserId(userId).stream()
+                .map(addressMapper::toDtos)
+                .collect(Collectors.toList());
     }
 
 
