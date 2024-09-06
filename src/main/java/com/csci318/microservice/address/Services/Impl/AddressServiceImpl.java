@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,6 +51,8 @@ public class AddressServiceImpl implements IAddressService {
 
         try {
             Address address = addressMapper.toEntities(addressDTORequest);
+            // TODO: Control UUID generation.
+            address.setId(UUID.randomUUID());
             address.setUserId(userId);
             addressRepository.save(address);
             log.info("Address created: " + address.getId());
