@@ -1,6 +1,6 @@
 spring:
   profiles: dev
   server:
-    port: 83
+    port: 86
   user-service:
-    url: http://localhost:83
+    url: http://localhost:86

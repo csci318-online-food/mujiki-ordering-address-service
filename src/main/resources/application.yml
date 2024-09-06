@@ -31,7 +31,7 @@ server:
   error:
     whitelabel:
       enabled: false
-  port: 83
+  port: 86
 
 # API Configuration
 user:
