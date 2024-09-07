@@ -23,10 +23,10 @@ public class Address {
     private UUID id;
 
     @Column(name = "user_id")
-    private String userId; // Aggregation (User)
+    private UUID userId; // Aggregation (User)
 
     @Column(name = "restaurant_id", unique = true) // Only one address per restaurant
-    private String restaurantId; // Aggregation (Restaurant)
+    private UUID restaurantId; // Aggregation (Restaurant)
 
     @Column(name = "street")
     private String street;

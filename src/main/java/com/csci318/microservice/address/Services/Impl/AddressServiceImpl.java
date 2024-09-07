@@ -45,7 +45,7 @@ public class AddressServiceImpl implements IAddressService {
     }
 
     @Override
-    public AddressDTOResponse createAddressForUser(AddressDTORequest addressDTORequest, String userId) {
+    public AddressDTOResponse createAddressForUser(AddressDTORequest addressDTORequest, UUID userId) {
         User user = restTemplate.getForObject(USER_URL + "/findById/" + userId, User.class); // Find user by userId from user service
         if (user == null) {
             log.error("User not found with userId: " + userId);
@@ -70,7 +70,7 @@ public class AddressServiceImpl implements IAddressService {
         }
     }
 
-    public AddressDTOResponse createAddressForRestaurant(AddressDTORequest addressDTORequest, String restaurantId) {
+    public AddressDTOResponse createAddressForRestaurant(AddressDTORequest addressDTORequest, UUID restaurantId) {
         User user = restTemplate.getForObject(RESTAURANT_URL + "/findById/" + restaurantId, User.class); // Find user by restaurant from user service
         if (user == null) {
             log.error("Restaurant not found with restaurant id: " + restaurantId);
@@ -95,14 +95,14 @@ public class AddressServiceImpl implements IAddressService {
     }
 
     @Override
-    public List<AddressDTOResponse> getAllAddressesForUser(String userId) {
+    public List<AddressDTOResponse> getAllAddressesForUser(UUID userId) {
         return addressRepository.findAllByUserId(userId).stream()
                 .map(addressMapper::toDtos)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public AddressDTOResponse getAddressForRestaurant(String restaurantId) {
+    public AddressDTOResponse getAddressForRestaurant(UUID restaurantId) {
         Address address = addressRepository.findByRestaurantId(restaurantId).orElse(null);
         if (address == null) {
             log.error("Address not found with addressId: " + restaurantId);

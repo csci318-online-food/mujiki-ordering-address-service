@@ -1,8 +1,6 @@
 package com.csci318.microservice.address.Entities.Relations;
 
-import com.csci318.microservice.address.Constants.HttpStatus.Roles;
-
-import java.util.UUID;
+import com.csci318.microservice.address.Constants.Roles;
 
 public class User {
     private String id;

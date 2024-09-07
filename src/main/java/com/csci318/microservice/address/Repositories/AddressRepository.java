@@ -12,8 +12,8 @@ import java.util.UUID;
 public interface AddressRepository extends JpaRepository<Address, UUID> {
 
     @Query("SELECT address FROM Address address WHERE address.userId = :userId")
-    List<Address> findAllByUserId(String userId);
+    List<Address> findAllByUserId(UUID userId);
 
-    @Query("SELECT address FROM Address address WHERE address.id = :addressId")
-    Optional<Address> findByRestaurantId(String addressId);
+    @Query("SELECT address FROM Address address WHERE address.restaurantId = :restaurantId")
+    Optional<Address> findByRestaurantId(UUID restaurantId);
 }

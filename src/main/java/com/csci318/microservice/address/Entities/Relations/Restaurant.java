@@ -1,11 +1,12 @@
 package com.csci318.microservice.address.Entities.Relations;
 
-import com.csci318.microservice.address.Constants.HttpStatus.CuisineType;
+import com.csci318.microservice.address.Constants.CuisineType;
 
 import java.time.LocalTime;
+import java.util.UUID;
 
 public class Restaurant {
-    private String id;
+    private UUID id;
     private String name;
     private String phone;
     private String email;

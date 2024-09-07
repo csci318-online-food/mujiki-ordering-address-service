@@ -13,8 +13,8 @@ import java.util.UUID;
 @Setter
 public class AddressDTOResponse {
     private UUID id;
-    private String userId;
-    private String restaurantId;
+    private UUID userId;
+    private UUID restaurantId;
     private String street;
     private String suburb;
     private String state;
