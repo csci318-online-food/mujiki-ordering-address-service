@@ -21,10 +21,18 @@ public class AddressController {
         this.addressService = addressService;
     }
 
-    @PostMapping("/{userId}")
+    @PostMapping("/forUser/{userId}")
     @ManagedOperation(description = "Create a new address for a user")
     public ResponseEntity<AddressDTOResponse> createAddress(@RequestBody AddressDTORequest address, @PathVariable String userId) {
         AddressDTOResponse addressObj = addressService.createAddressForUser(address, userId);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(addressObj);
+    }
+
+    @PostMapping("/forRestaurant/{addressId}")
+    @ManagedOperation(description = "Create a new address for a restaurant")
+    public ResponseEntity<AddressDTOResponse> createAddressForRestaurant(@RequestBody AddressDTORequest address, @PathVariable String addressId) {
+        AddressDTOResponse addressObj = addressService.createAddressForRestaurant(address, addressId);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(addressObj);
     }

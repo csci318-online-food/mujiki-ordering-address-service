@@ -35,6 +35,9 @@ public class AddressServiceImpl implements IAddressService {
     @Value("${user.url.service}")
     private String USER_URL;
 
+    @Value("${restaurant.url.service}")
+    private String RESTAURANT_URL;
+
     public AddressServiceImpl(AddressRepository addressRepository, AddressMapper addressMapper, ApplicationEventPublisher eventPublisher) {
         this.addressRepository = addressRepository;
         this.addressMapper = addressMapper;
@@ -54,6 +57,32 @@ public class AddressServiceImpl implements IAddressService {
             // TODO: Control UUID generation.
             address.setId(UUID.randomUUID());
             address.setUserId(userId);
+            address.setLatitude(address.getLatitude());
+            address.setLongitude(address.getLongitude());
+            addressRepository.save(address);
+            log.info("Address created: " + address.getId());
+            log.info("Restaurant created successfully with id: {}", address.getId());
+            eventPublisher.publishEvent(address);
+            return addressMapper.toDtos(address);
+        } catch (Exception e) {
+            log.error("Error creating address: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public AddressDTOResponse createAddressForRestaurant(AddressDTORequest addressDTORequest, String restaurantId) {
+        User user = restTemplate.getForObject(RESTAURANT_URL + "/findById/" + restaurantId, User.class); // Find user by restaurant from user service
+        if (user == null) {
+            log.error("Restaurant not found with restaurant id: " + restaurantId);
+            return null;
+        }
+        try {
+            Address address = addressMapper.toEntities(addressDTORequest);
+            // TODO: Control UUID generation.
+            address.setId(UUID.randomUUID());
+            address.setRestaurantId(restaurantId);
+            address.setLatitude(address.getLatitude());
+            address.setLongitude(address.getLongitude());
             addressRepository.save(address);
             log.info("Address created: " + address.getId());
             log.info("Restaurant created successfully with id: {}", address.getId());

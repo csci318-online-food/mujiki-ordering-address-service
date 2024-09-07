@@ -7,6 +7,8 @@ CREATE TABLE address (
      state VARCHAR(255),
      postcode VARCHAR(10),
      country VARCHAR(255),
+     latitude DOUBLE,
+     longitude DOUBLE,
      create_at timestamp,
      modify_at timestamp,
      modify_by varchar(64),

@@ -20,4 +20,6 @@ public class AddressDTOResponse {
     private String state;
     private String postcode;
     private String country;
+    private Double latitude;
+    private Double longitude;
 }

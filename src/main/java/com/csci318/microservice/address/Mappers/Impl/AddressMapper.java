@@ -23,6 +23,8 @@ public class AddressMapper implements Mapper<Address, AddressDTOResponse, Addres
         dto.setCountry(entity.getCountry());
         dto.setUserId(entity.getUserId());
         dto.setRestaurantId(entity.getRestaurantId());
+        dto.setLongitude(entity.getLongitude());
+        dto.setLatitude(entity.getLatitude());
         return dto;
     }
 
