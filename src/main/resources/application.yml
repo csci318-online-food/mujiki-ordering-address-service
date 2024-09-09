@@ -31,13 +31,13 @@ server:
   error:
     whitelabel:
       enabled: false
-  port: 86
+  port: 8086
 
 # API Configuration
 user:
   url:
-    service: http://localhost:81/api/user
+    service: http://localhost:8081/api/user
 
 restaurant:
   url:
-    service: http://localhost:82/api/restaurant
+    service: http://localhost:8082/api/restaurant
