@@ -1,4 +1,4 @@
-package com.csci318.microservice.address.Entities.Relations;
+package com.csci318.microservice.address.Domain.Relations;
 
 import com.csci318.microservice.address.Constants.Roles;
 

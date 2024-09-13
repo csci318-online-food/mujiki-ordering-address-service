@@ -1,8 +1,9 @@
 package com.csci318.microservice.address.Repositories;
 
-import com.csci318.microservice.address.Entities.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import com.csci318.microservice.address.Domain.Entities.Address;
 
 import java.util.Collection;
 import java.util.List;

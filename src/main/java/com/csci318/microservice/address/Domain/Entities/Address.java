@@ -1,4 +1,4 @@
-package com.csci318.microservice.address.Entities;
+package com.csci318.microservice.address.Domain.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;

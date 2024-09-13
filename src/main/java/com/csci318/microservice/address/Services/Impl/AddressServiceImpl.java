@@ -2,8 +2,8 @@ package com.csci318.microservice.address.Services.Impl;
 
 import com.csci318.microservice.address.DTOs.AddressDTORequest;
 import com.csci318.microservice.address.DTOs.AddressDTOResponse;
-import com.csci318.microservice.address.Entities.Address;
-import com.csci318.microservice.address.Entities.Relations.User;
+import com.csci318.microservice.address.Domain.Entities.Address;
+import com.csci318.microservice.address.Domain.Relations.User;
 import com.csci318.microservice.address.Mappers.Impl.AddressMapper;
 import com.csci318.microservice.address.Repositories.AddressRepository;
 import com.csci318.microservice.address.Services.IAddressService;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;

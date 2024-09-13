@@ -2,7 +2,7 @@ package com.csci318.microservice.address.Mappers.Impl;
 
 import com.csci318.microservice.address.DTOs.AddressDTORequest;
 import com.csci318.microservice.address.DTOs.AddressDTOResponse;
-import com.csci318.microservice.address.Entities.Address;
+import com.csci318.microservice.address.Domain.Entities.Address;
 import com.csci318.microservice.address.Mappers.Mapper;
 import org.springframework.stereotype.Component;
 
