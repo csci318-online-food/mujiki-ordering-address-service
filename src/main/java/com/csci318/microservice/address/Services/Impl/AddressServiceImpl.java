@@ -3,6 +3,7 @@ package com.csci318.microservice.address.Services.Impl;
 import com.csci318.microservice.address.DTOs.AddressDTORequest;
 import com.csci318.microservice.address.DTOs.AddressDTOResponse;
 import com.csci318.microservice.address.Domain.Entities.Address;
+import com.csci318.microservice.address.Domain.Relations.Restaurant;
 import com.csci318.microservice.address.Domain.Relations.User;
 import com.csci318.microservice.address.Mappers.Impl.AddressMapper;
 import com.csci318.microservice.address.Repositories.AddressRepository;
@@ -70,8 +71,11 @@ public class AddressServiceImpl implements IAddressService {
     }
 
     public AddressDTOResponse createAddressForRestaurant(AddressDTORequest addressDTORequest, UUID restaurantId) {
-        User user = restTemplate.getForObject(RESTAURANT_URL + "/findById/" + restaurantId, User.class); // Find user by restaurant from user service
-        if (user == null) {
+        Restaurant restaurant = restTemplate.getForObject(
+            RESTAURANT_URL + "/findById/" + restaurantId,
+            Restaurant.class
+        ); // Find restaurant by restaurantId from restaurant service
+        if (restaurant == null) {
             log.error("Restaurant not found with restaurant id: " + restaurantId);
             return null;
         }

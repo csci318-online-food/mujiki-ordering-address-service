@@ -17,7 +17,8 @@ import java.util.UUID;
 public class Restaurant {
     private UUID id;
     private String name;
-    private String phone;
+    // Not referenced in this service.
+    // private String phone;
     private String email;
     private String password;
     private CuisineType cuisine;
