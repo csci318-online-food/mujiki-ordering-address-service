@@ -2,6 +2,15 @@ package com.csci318.microservice.address.Domain.Relations;
 
 import com.csci318.microservice.address.Constants.Roles;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class User {
     private String id;
     private String username;

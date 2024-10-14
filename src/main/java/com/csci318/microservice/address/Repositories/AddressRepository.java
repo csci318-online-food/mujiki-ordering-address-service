@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.csci318.microservice.address.Domain.Entities.Address;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

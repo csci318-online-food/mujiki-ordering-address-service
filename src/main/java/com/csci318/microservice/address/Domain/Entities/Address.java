@@ -1,6 +1,5 @@
 package com.csci318.microservice.address.Domain.Entities;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -8,6 +7,19 @@ import lombok.Builder;
 
 import java.util.Random;
 import java.util.UUID;
+
+import com.csci318.microservice.address.Domain.Relations.Restaurant;
+import com.csci318.microservice.address.Domain.Relations.User;
+import com.csci318.microservice.address.Utils.Annotations.ManyToOne;
+import com.csci318.microservice.address.Utils.Annotations.OneToOne;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,9 +35,11 @@ public class Address {
     private UUID id;
 
     @Column(name = "user_id")
+    @ManyToOne(targetEntity = User.class, optional = true)
     private UUID userId; // Aggregation (User)
 
     @Column(name = "restaurant_id", unique = true) // Only one address per restaurant
+    @OneToOne(targetEntity = Restaurant.class, optional = true)
     private UUID restaurantId; // Aggregation (Restaurant)
 
     @Column(name = "street")
